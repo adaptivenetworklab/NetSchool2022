@@ -121,11 +121,11 @@ sudo apt install grafana
 ## Setelah semua telah diinstal, Ujicoba semua apakah berjalan dengan baik dan benar
 ### Untuk mengujungi web prometheus dengan mengakses melalui IP Server dengan browser
 #### http://<ip_server>:9090
-![This is an image](Assets/Prometheus image.png)
+![This is an image](Assets/Prometheus%20image.png)
 
 ### Untuk mengunjungi web Grafana dengan mengakses melalui IP Server dengan browser
 #### http://<ip_server>:3000
-![This is an image](Assets/Grafana image.png)
+![This is an image](Assets/Grafana%20image.png)
 
 ### Menambahkan Data Sources Prometheus pada Grafana
 #### Pada menu bar sebelah kiri bawah pilih Configuration > Data Sources 
