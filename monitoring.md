@@ -33,7 +33,6 @@ Alias=node_exporter.service
 ## Selanjutnya mengatur service Prometheus dan file yang dibutuhkan
 ```bash
 sudo mkdir /var/lib/prometheus
-sudo cp prometheus-2.40.5.linux-amd64/prometheus.yml /etc/prometheus/
 sudo cp ~/prometheus-2.40.5.linux-amd64/console* /etc/prometheus/
 sudo nano /etc/systemd/system/prometheus.service
 ```
@@ -55,4 +54,48 @@ ExecStart=/opt/prometheus/prometheus \
 [Install]
 WantedBy=multi-user.target
 Alias=prometheus.service
+```
+## Edit file promtheus.yml untuk menambahkan target metrics Node Exporter
+```bash
+sudo nano /etc/prometheus/prometheus.yml
+```
+# Salin teks berikut lalu simpan
+```bash
+global:
+  scrape_interval: 5s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  # Job untuk target Prometheus itu sendiri
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+   # Job untuk target Node Exporter
+  - job_name: node
+    static_configs:
+      - targets: ["localhost:9100"]
+```
+## Setelah semua service dan file serta folder yang diperlukan telah dibuat, selanjutnya adalah menjalankan service Promtheus dan Node Exporter
+```bash
+sudo systemctl start prometheus
+sudo systemctl start node_exporter
+```
+## Melihat status dari service 
+### Untuk keluar dari status view klik tombol 'Q' pada keyboard
+```bash
+sudo systemctl status prometheus
+sudo systemctl status node_exporter
 ```
