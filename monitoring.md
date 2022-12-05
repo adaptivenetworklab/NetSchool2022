@@ -59,7 +59,7 @@ Alias=prometheus.service
 ```bash
 sudo nano /etc/prometheus/prometheus.yml
 ```
-# Salin teks berikut lalu simpan
+## Salin teks berikut lalu simpan
 ```bash
 global:
   scrape_interval: 5s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
