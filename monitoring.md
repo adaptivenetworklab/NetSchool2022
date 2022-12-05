@@ -90,8 +90,7 @@ scrape_configs:
 ```
 ## Setelah semua service dan file serta folder yang diperlukan telah dibuat, selanjutnya adalah menjalankan service Promtheus dan Node Exporter
 ```bash
-sudo systemctl start prometheus
-sudo systemctl start node_exporter
+sudo systemctl start prometheus && sudo systemctl start node_exporter
 ```
 ## Melihat status dari service 
 ### Untuk keluar dari status view klik tombol 'Q' pada keyboard
