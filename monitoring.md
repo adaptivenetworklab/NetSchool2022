@@ -8,13 +8,13 @@ tar -xzvf prometheus-2.40.5.linux-amd64.tar.gz && tar -xzvf node_exporter-1.5.0.
 ```
 ## Buat folder dan file yang dibutuhkan
 ```bash
-cd /opt && sudo mkdir prometheus node_exporter
-sudo mkdir /etc/prometheus
+cd /opt && sudo mkdir prometheus node_exporter && \
+sudo mkdir /etc/prometheus && \
 sudo cp ~/node_exporter-1.5.0.linux-amd64/node_exporter /opt/node_exporter/
 ```
 ## Buat service untuk node exporter
 ```bash
- sudo nano /etc/systemd/system/node_exporter.service
+sudo nano /etc/systemd/system/node_exporter.service
 ```
 ## Salin semua teks berikut lalu simpan
 ```bash
@@ -32,8 +32,8 @@ Alias=node_exporter.service
 ```
 ## Selanjutnya mengatur service Prometheus dan file yang dibutuhkan
 ```bash
-sudo mkdir /var/lib/prometheus
-sudo cp ~/prometheus-2.40.5.linux-amd64/console* /etc/prometheus/
+sudo mkdir /var/lib/prometheus && \
+sudo cp ~/prometheus-2.40.5.linux-amd64/console* /etc/prometheus/ && \
 sudo nano /etc/systemd/system/prometheus.service
 ```
 ## Salin semua teks berikut lalu simpan
@@ -94,7 +94,12 @@ sudo systemctl start prometheus && sudo systemctl start node_exporter
 ```
 ## Melihat status dari service 
 ### Untuk keluar dari status view klik tombol 'Q' pada keyboard
+#### Berikut adalah perintah untuk melihat Service Prometheus
 ```bash
 sudo systemctl status prometheus
+sudo systemctl status node_exporter
+```
+#### Berikut adalah perintah untuk melihat Service Node Exporter
+```bash
 sudo systemctl status node_exporter
 ```
