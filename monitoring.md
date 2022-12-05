@@ -33,6 +33,7 @@ Alias=node_exporter.service
 ## Selanjutnya mengatur service Prometheus dan file yang dibutuhkan
 ```bash
 sudo mkdir /var/lib/prometheus && \
+sudo cp ~/prometheus-2.40.5.linux-amd64/prometheus /opt/prometheus/ && \
 sudo cp ~/prometheus-2.40.5.linux-amd64/console* /etc/prometheus/ && \
 sudo nano /etc/systemd/system/prometheus.service
 ```
