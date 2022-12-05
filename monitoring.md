@@ -102,3 +102,15 @@ sudo systemctl status prometheus
 ```bash
 sudo systemctl status node_exporter
 ```
+
+## Selanjutnya adalah menginstal Grafana
+```bash
+sudo apt-get install -y apt-transport-https && \
+sudo apt-get install -y software-properties-common wget && \
+curl -L https://apt.grafana.com/gpg.key | sudo apt-key add -
+```
+### Tambahkan repository grafana lalu instal
+```bash
+sudo apt-add-repository 'deb https://apt.grafana.com stable main' && \
+sudo apt install grafana
+```
