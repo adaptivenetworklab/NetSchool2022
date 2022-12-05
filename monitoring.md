@@ -97,7 +97,6 @@ sudo systemctl start prometheus && sudo systemctl start node_exporter
 #### Berikut adalah perintah untuk melihat Service Prometheus
 ```bash
 sudo systemctl status prometheus
-sudo systemctl status node_exporter
 ```
 #### Berikut adalah perintah untuk melihat Service Node Exporter
 ```bash
