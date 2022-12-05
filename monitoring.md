@@ -92,6 +92,7 @@ scrape_configs:
 ```
 ## Setelah semua service dan file serta folder yang diperlukan telah dibuat, selanjutnya adalah menjalankan service Promtheus dan Node Exporter
 ```bash
+sudo systemctl daemon-reload && \
 sudo systemctl start prometheus && sudo systemctl start node_exporter
 ```
 ## Melihat status dari service 
@@ -116,3 +117,20 @@ curl -L https://apt.grafana.com/gpg.key | sudo apt-key add -
 sudo apt-add-repository 'deb https://apt.grafana.com stable main' && \
 sudo apt install grafana
 ```
+
+## Setelah semua telah diinstal, Ujicoba semua apakah berjalan dengan baik dan benar
+### Untuk mengujungi web prometheus dengan mengakses melalui IP Server dengan browser
+####http://<ip_server>:9090
+
+### Untuk mengunjungi web Grafana dengan mengakses melalui IP Server dengan browser
+####http://<ip_server>:3000
+
+### Menambahkan Data Sources Prometheus pada Grafana
+#### Pada menu bar sebelah kiri bawah pilih Configuration > Data Sources 
+#### Pilih add data sources lalu pilih Prometheus
+#### Pada kolom URL masukan http://<ip_server>:9090 lalu save & test
+
+### Membuat Dashboard pada Grafana untuk menampilkan data dari Prometheus
+#### Pada menu bar sebelah kiri pilih Dashboard > Import 
+#### Pada kolom 'Import via grafana.com' isi dengan '1860' lalu load
+#### Pada kolom 'Prometheus" pilih Data sources Prometheus yang telah ditambahkan sebelumnya
